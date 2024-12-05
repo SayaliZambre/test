@@ -3,29 +3,46 @@ import 'boxicons';
 import {default as api} from '../store/apiSlice';
 
 export default function List() {
-    const { data, isFetching , isSuccess, isError } = api.useGetLabelsQuery()
-    const [deleteTransaction] = api.useDeleteTransactionMutation()
-    let Transactions;
+    // const { data, isFetching , isSuccess, isError } = api.useGetLabelsQuery()
+    // const [deleteTransaction] = api.useDeleteTransactionMutation()
+    // let Transactions;
 
     
-    const handlerClick = (e) => {
-        if(!e.target.dataset.id) return 0;
-        deleteTransaction({ _id : e.target.dataset.id })
-    }
+    // const handlerClick = (e) => {
+    //     if(!e.target.dataset.id) return 0;
+    //     deleteTransaction({ _id : e.target.dataset.id })
+    // }
 
-    if(isFetching){
-        Transactions = <div>Fetching</div>;
-    }else if(isSuccess){
-        Transactions = data.map((v, i) => <Transaction key={i} category={v} handler={handlerClick} ></Transaction>);
-    }else if(isError){
-        Transactions = <div>Error</div>
-    }
-
+    // if(isFetching){
+    //     Transactions = <div>Fetching</div>;
+    // }else if(isSuccess){
+    //     Transactions = data.map((v, i) => <Transaction key={i} category={v} handler={handlerClick} ></Transaction>);
+    // }else if(isError){
+    //     Transactions = <div>Error</div>
+    // }
+    const obj = [
+        {
+          type: 'Savings',
+          color: generateRandomColor(),
+          percent: 45,
+        },
+        {
+          type: 'Investments',
+          color: generateRandomColor(),
+          percent: 30,
+        },
+        {
+          type: 'Expenses',
+          color: generateRandomColor(),
+          percent: 25,
+        },
+      ];
+      
 
   return (
     <div className="flex flex-col py-6 gap-3">
         <h1 className='py-4 font-bold text-xl'>History</h1>
-        {Transactions}
+       {obj.map((v,i)=> <Transaction key={i}category={v}></Transaction>)}
     </div>
   )
 }
