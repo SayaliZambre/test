@@ -20,6 +20,10 @@ export default function List() {
     // }else if(isError){
     //     Transactions = <div>Error</div>
     // }
+    const generateRandomColor = () => {
+        return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+      };
+      
     const obj = [
         {
           type: 'Savings',
