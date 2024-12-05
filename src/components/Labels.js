@@ -8,17 +8,17 @@ export default function Labels() {
   
   const obj = [
     {
-      type: 'Savings',
+      type: 'Future Fund:',
       color: generateRandomColor(),
       percent: 45,
     },
     {
-      type: 'Investments',
+      type: 'Growth',
       color: generateRandomColor(),
       percent: 30,
     },
     {
-      type: 'Expenses',
+      type: 'Budget',
       color: generateRandomColor(),
       percent: 25,
     },
